@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Playerhealth : MonoBehaviour
 {
     public int playerhealth; 
     // Start is called before the first frame update
     void Start()
     {
-        playerhealth = 10; 
+        playerhealth = 10;
     }
-
-    // Update is called once per frame
-    void Update()
+     
+// Update is called once per frame
+void Update()
     {
-        if(playerhealth < 1)
+        if (playerhealth < 1)
         {
             SceneManager.LoadScene(1);
         }
