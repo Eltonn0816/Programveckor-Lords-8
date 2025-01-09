@@ -9,13 +9,13 @@ public class Playerhealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerhealth = 10; 
+        playerhealth = 10;
     }
-
-    // Update is called once per frame
-    void Update()
+     
+// Update is called once per frame
+void Update()
     {
-        if(playerhealth < 1)
+        if (playerhealth < 1)
         {
             SceneManager.LoadScene(1);
         }
