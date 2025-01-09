@@ -17,19 +17,19 @@ public class Playermovement : MonoBehaviour
     void Update()
     {
         rb.velocity = new Vector2(0, 0); 
-        if(transform.position.x < 8.45 && Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) && transform.position.x < 8.45)
+        if(transform.position.x < 11.8 && Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) && transform.position.x < 11.8)
         {
             rb.velocity += new Vector2(5, 0);
         }
-        if(transform.position.x > -8.45 && Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) && transform.position.x > -8.45)
+        if(transform.position.x > -11.8 && Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) && transform.position.x > -11.8)
         {
             rb.velocity += new Vector2(-5, 0);
         }
-        if (transform.position.y > -4.45 && Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) && transform.position.y > -4.45)
+        if (transform.position.y > -6.4 && Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) && transform.position.y > -6.4)
         {
             rb.velocity += new Vector2(0, -5); 
         }
-        if (transform.position.y < 4.45 && Input.GetKey(KeyCode.W)  || Input.GetKey(KeyCode.UpArrow) && transform.position.y < 4.45)
+        if (transform.position.y < 6.4 && Input.GetKey(KeyCode.W)  || Input.GetKey(KeyCode.UpArrow) && transform.position.y < 6.4)
         {
             rb.velocity += new Vector2(0, 5); 
         }
