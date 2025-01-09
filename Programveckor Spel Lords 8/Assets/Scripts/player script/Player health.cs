@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Playerhealth : MonoBehaviour
+public class PlayerHP : MonoBehaviour
 {
-    public int playerhealth; 
+    public int playerhealth;
     // Start is called before the first frame update
     void Start()
     {
