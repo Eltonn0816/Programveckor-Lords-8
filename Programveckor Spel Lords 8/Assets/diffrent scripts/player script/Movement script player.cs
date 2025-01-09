@@ -17,19 +17,19 @@ public class Playermovement : MonoBehaviour
     void Update()
     {
         rb.velocity = new Vector2(0, 0); 
-        if(Input.GetKey(KeyCode.D) && transform.position.x < 8.45) 
+        if(transform.position.x < 8.45 && Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) && transform.position.x < 8.45)
         {
             rb.velocity = new Vector2(5, 0);
         }
-        if(Input.GetKey(KeyCode.A) && transform.position.x > -8.45)
+        if(transform.position.x > -8.45 && Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) && transform.position.x > -8.45)
         {
             rb.velocity = new Vector2(-5, 0);
         }
-        if(Input.GetKey(KeyCode.S) && transform.position.y > -4.45)
+        if (transform.position.y > -4.45 && Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) && transform.position.y > -4.45)
         {
             rb.velocity = new Vector2(0, -5); 
         }
-        if (Input.GetKey(KeyCode.W) && transform.position.y < 4.45)
+        if (transform.position.y < 4.45 && Input.GetKey(KeyCode.W)  || Input.GetKey(KeyCode.UpArrow) && transform.position.y < 4.45)
         {
             rb.velocity = new Vector2(0, 5); 
         }
