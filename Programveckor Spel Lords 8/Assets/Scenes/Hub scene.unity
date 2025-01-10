@@ -795,7 +795,7 @@ GameObject:
   - component: {fileID: 716643294}
   - component: {fileID: 716643296}
   m_Layer: 0
-  m_Name: ID-FW-F1
+  m_Name: knight (player)
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
