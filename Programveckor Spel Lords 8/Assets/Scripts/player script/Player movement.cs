@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class Playermovement : MonoBehaviour
 {
-    Animator animator;
+   // Animator animator;
     Rigidbody2D rb; 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         //needs rigidbody  
-        animator = GetComponent<Animator>();
+       // animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -34,11 +34,11 @@ public class Playermovement : MonoBehaviour
         if (Input.GetKey(KeyCode.W)  || Input.GetKey(KeyCode.UpArrow))
         {
             rb.velocity += new Vector2(0, 5);
-            animator.Play("walking farward");
+          //  animator.Play("walking farward");
         }
         if (rb.velocity == new Vector2 (0,0))
         {
-            animator.Play("idel knight");
+           // animator.Play("idel knight");
         }
         
     }

@@ -6,15 +6,26 @@ using Random = UnityEngine.Random;
 
 public class passiveEnemy : MonoBehaviour
     
-{
-    Rigidbody2D rb; public float targetTime = 0f;
+{   
 
+    Rigidbody2D rb; public float targetTime = 0f;
+  
     // Start is called before the first frame update
     void Start()
     {
        rb = GetComponent<Rigidbody2D>();
+       
     }
- 
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            
+        }
+    }
+
+
     // Update is called once per frame
     void Update()
     {
