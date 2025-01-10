@@ -22,7 +22,7 @@ public class passiveEnemy : MonoBehaviour
         if (targetTime >= 1f)
         {
             
-            rb.velocity = new Vector2(Random.Range(-7, 6), Random.Range(-4, 5));
+            rb.velocity = new Vector2(Random.Range(-6, 5), Random.Range(-4, 5));
             if(targetTime <= 3)
             {
                 targetTime = 0;

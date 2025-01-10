@@ -11,13 +11,21 @@ public class PlayerHP : MonoBehaviour
     {
         playerhealth = 10;
     }
-     
-// Update is called once per frame
-void Update()
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "enemy")
+        {
+            playerhealth -= 2;               
+        }
+    }
+    // Update is called once per frame
+    void Update()
     {
         if (playerhealth < 1)
         {
             SceneManager.LoadScene(1);
         }
+       
     }
+    
 }
