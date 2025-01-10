@@ -10,7 +10,7 @@ public class wizard : MonoBehaviour
     public string[] dialouge;
     private int index;
 
-   
+    public GameObject continueButton;
 
     public float worldSpeed;
     public bool playerIsClose;
@@ -33,6 +33,13 @@ public class wizard : MonoBehaviour
 
 
         }
+        if ( dialougeText.text == dialouge[index])
+        {
+            continueButton.SetActive(true);
+
+        }
+
+        
     }
 
     public void zeroText()
@@ -55,6 +62,8 @@ public class wizard : MonoBehaviour
 
     public void NextLine()
     {
+        continueButton.SetActive(false);
+
         if (index < dialouge.Length - 1)
         {
             index++;
