@@ -36,7 +36,7 @@ public class Playermovement : MonoBehaviour
             rb.velocity += new Vector2(0, 5);
             animator.Play("walking farward");
         }
-        if (rb.velocity == new Vector2 (0,0))
+        else 
         {
             animator.Play("idel knight");
         }

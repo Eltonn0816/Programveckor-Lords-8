@@ -915,7 +915,7 @@ Transform:
   m_GameObject: {fileID: 716643286}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -6.5, z: 0}
+  m_LocalPosition: {x: 0, y: -5.43, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1343,9 +1343,10 @@ MonoBehaviour:
   dialoguePanel: {fileID: 1505118256}
   dialougeText: {fileID: 122908189}
   dialouge:
-  - hello
-  - my name is haristan
-  - i am the wizard
+  - Hello Knight. My name is Haristan.
+  - You have been chosen by the king of this land as the strongest fighter.
+  - 'You have to end the corruption that is spreading across the time. What is your
+    name fighter? '
   continueButton: {fileID: 502192218}
   worldSpeed: 0.06
   playerIsClose: 0
