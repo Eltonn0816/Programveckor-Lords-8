@@ -6,13 +6,16 @@ using TMPro;
 public class wizard : MonoBehaviour
 {
     public GameObject dialoguePanel;
-    public Text dialougeText;
+    public TextMeshProUGUI dialougeText;
     public string[] dialouge;
     private int index;
 
-    private float worldSpeed;
+   
+
+    public float worldSpeed;
     public bool playerIsClose;
 
+   
     // Update is called once per frame
     void Update()
     {
