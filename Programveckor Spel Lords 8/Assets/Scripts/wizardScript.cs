@@ -11,14 +11,16 @@ public class wizard : MonoBehaviour
     private int index;
 
     public GameObject continueButton;
-
+    // speed with worlds will be read up.
     public float worldSpeed;
+    //kollar hur nära spelaren är.
     public bool playerIsClose;
 
    
     // Update is called once per frame
     void Update()
     {
+        //om spelaren är nära och trycker E kan man prata
         if (Input.GetKeyDown(KeyCode.E) && playerIsClose)
         {
             if (dialoguePanel.activeInHierarchy)
@@ -59,7 +61,7 @@ public class wizard : MonoBehaviour
 
         }
     }
-
+    //nästa råd text 
     public void NextLine()
     {
         continueButton.SetActive(false);
@@ -76,7 +78,7 @@ public class wizard : MonoBehaviour
         }
 
     }
-
+    //kollar om spelaren är nära
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
