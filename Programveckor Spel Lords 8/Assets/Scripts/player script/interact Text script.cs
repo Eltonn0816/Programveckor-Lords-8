@@ -5,16 +5,41 @@ using UnityEngine;
 
 public class interactTextscript : MonoBehaviour
 {
-    
-    public TextMeshProUGUI interactText; 
+    //public GameObject dialogePanel;
+    public GameObject interactText;
+    private bool IsPlayerClose = false;
     // Start is called before the first frame update
     void Start()
     {
+        if (interactText != null)
+        {
+            interactText.SetActive(false);
+        }
         
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter(Collider other)
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            IsPlayerClose = true;
+            if (interactText != null)
+            {
+                interactText.SetActive(true);
+            }
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            IsPlayerClose = false;
+            if (interactText != null)
+            {
+                interactText.SetActive(false);
+            }
+
+        }
     }
     // Update is called once per frame
     void Update()
