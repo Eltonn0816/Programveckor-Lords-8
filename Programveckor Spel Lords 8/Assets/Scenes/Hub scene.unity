@@ -352,7 +352,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58a2ed334c898524f87a70ca6c39593b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogePanel: {fileID: 0}
   interactText: {fileID: 1809305322}
 --- !u!1 &51475218
 GameObject:

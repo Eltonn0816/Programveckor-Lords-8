@@ -6,7 +6,7 @@ using UnityEngine;
 public class interactTextscript : MonoBehaviour
 {
     //public GameObject dialogePanel;
-    public GameObject interactText;
+    public TextMeshProUGUI interactText;
     private bool IsPlayerClose = false;
     // Start is called before the first frame update
     void Start()

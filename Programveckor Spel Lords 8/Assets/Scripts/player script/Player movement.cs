@@ -1,10 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class Playermovement : MonoBehaviour
 {
+
+    //för attack
+    public Transform Aim;
+    bool isMoving = false; 
+
     Animator animator;
     Rigidbody2D rb; 
     //Start is called before the first frame update
@@ -13,6 +19,7 @@ public class Playermovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
        // needs rigidbody  
         animator = GetComponent<Animator>();
+       
     }
 
     // Update is called once per frame
@@ -41,7 +48,7 @@ public class Playermovement : MonoBehaviour
         }
         else 
         {
-           // animator.Play("idel knight");
+           animator.Play("idel knight");
         }
         
     }
