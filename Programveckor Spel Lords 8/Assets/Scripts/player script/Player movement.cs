@@ -48,7 +48,7 @@ public class Playermovement : MonoBehaviour
         }
         else 
         {
-           animator.Play("idel knight");
+          // animator.Play("idel knight");
         }
         
     }
