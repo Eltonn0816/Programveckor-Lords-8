@@ -26,10 +26,14 @@ public class Playermovement : MonoBehaviour
     void Update()
     {
         rb.velocity = new Vector2(0, 0); 
+        if(Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
+        {
+            animator.Play("right up knight walk");
+        }
         if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             rb.velocity += new Vector2(5, 0);
-            animator.Play("walk right knight");
+          //  animator.Play("walk right knight");
         }
         if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
@@ -44,12 +48,12 @@ public class Playermovement : MonoBehaviour
         if (Input.GetKey(KeyCode.W)  || Input.GetKey(KeyCode.UpArrow))
         {
             rb.velocity += new Vector2(0, 5);
-            animator.Play("walking farward");
+           // animator.Play("walking farward");
         }
-        else 
-        {
-          // animator.Play("idel knight");
-        }
+       // if (!Input.GetKey(KeyCode.S) || !Input.GetKey(KeyCode.W) || !Input.GetKey(KeyCode.A) || !Input.GetKey(KeyCode.D) || !Input.GetKey(KeyCode.UpArrow) || !Input.GetKey(KeyCode.DownArrow) || !Input.GetKey(KeyCode.LeftArrow) || !Input.GetKey(KeyCode.RightArrow ))
+       //{
+       //     animator.Play("idel knight"); 
+       // }
         
     }
 }

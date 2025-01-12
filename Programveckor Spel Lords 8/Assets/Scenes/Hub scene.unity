@@ -1079,7 +1079,7 @@ MonoBehaviour:
   m_CategoryHash: 1.411001e-30
   m_labelHash: 3.991422e-13
   m_SpriteKey: 0
-  m_SpriteHash: 143433180
+  m_SpriteHash: 888095966
 --- !u!111 &716643288
 Animation:
   m_ObjectHideFlags: 0
@@ -1306,6 +1306,36 @@ MonoBehaviour:
     - m_Name: Entry_8
       m_Hash: 0
       m_Sprite: {fileID: 21300000, guid: 232d2978e9339924cb42b1d7e581a17b, type: 3}
+  - m_Name: right up
+    m_Hash: 0
+    m_CategoryList:
+    - m_Name: Entry
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: d51df62ea3816fc4b9f5034a42548180, type: 3}
+    - m_Name: Entry_0
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: a04c2321de708884a98fc7035bab5859, type: 3}
+    - m_Name: Entry_1
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: f666b95e150603b4983322483bd7fba6, type: 3}
+    - m_Name: Entry_2
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: 77949e3ddd77bbe478fb9974d94a454f, type: 3}
+    - m_Name: Entry_3
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: fad910caad7ddcd4cbe9a7bb598a9af3, type: 3}
+    - m_Name: Entry_4
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: 1f58db5ca5493054b9c3f9c19d454148, type: 3}
+    - m_Name: Entry_5
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: 1be28fa3c42618247a7310b83e2fcf17, type: 3}
+    - m_Name: Entry_6
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: 83f6a8565e8fb554b8f6ec4b2cb8ea2a, type: 3}
+    - m_Name: Entry_7
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: 768c675fa6d0ed140a25865886baee0f, type: 3}
   m_SpriteLibraryAsset: {fileID: 0}
 --- !u!114 &716643293
 MonoBehaviour:
@@ -1319,6 +1349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a17bf8d3f9564e14da393ea32ab5aaf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Aim: {fileID: 0}
 --- !u!70 &716643294
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
