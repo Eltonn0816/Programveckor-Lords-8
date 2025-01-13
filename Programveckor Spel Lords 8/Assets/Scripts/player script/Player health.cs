@@ -20,7 +20,15 @@ public class PlayerHP : MonoBehaviour
             SceneManager.LoadScene(2);
 
         }
-
+       
     }
-    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            playerhealth -= 2; 
+        }
+    }
+
 }
+
