@@ -13,7 +13,9 @@ public class Playermovement : MonoBehaviour
     bool isMoving = false;
   
     Animator animator;
-    Rigidbody2D rb; 
+    Rigidbody2D rb;
+    public float speed = 5f;
+
     //Start is called before the first frame update
     void Start()
     {
@@ -28,8 +30,7 @@ public class Playermovement : MonoBehaviour
     void Update()
     {
 
-        Vector2 movement = Vector2.zero;
-        float speed = 5f; 
+        Vector2 movement = Vector2.zero; 
 
         if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
         {
