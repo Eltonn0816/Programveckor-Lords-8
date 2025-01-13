@@ -10,6 +10,8 @@ public class wizard : MonoBehaviour
     public string[] dialouge;
     private int index;
 
+    public GameObject ePopUp;
+
     public GameObject continueButton;
     // speed with worlds will be read up.
     public float worldSpeed;
@@ -20,6 +22,7 @@ public class wizard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //om spelaren är nära och trycker E kan man prata
         if (Input.GetKeyDown(KeyCode.E) && playerIsClose)
         {
@@ -84,7 +87,9 @@ public class wizard : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerIsClose = true;
+            ePopUp.SetActive(true);
         }
+
     }
     private void OnTriggerExit2D(Collider2D other)
     {
@@ -92,6 +97,7 @@ public class wizard : MonoBehaviour
         {
             playerIsClose = false;
             zeroText();
+            ePopUp.SetActive(false);
         }
     }
 
