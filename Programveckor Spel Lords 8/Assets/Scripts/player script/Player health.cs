@@ -1,33 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; 
 using UnityEngine.SceneManagement;
+using UnityEditor.Experimental.Rendering;
 
 public class PlayerHP : MonoBehaviour
 {
-    public int playerhealth;
-    // Start is called before the first frame update
+    public int maxhealth = 100;
+    public int currenthealth;
+    public Slider healthBar; 
     void Start()
     {
-        playerhealth = 10;
+        currenthealth = maxhealth; 
+
+        if(healthBar != null)
+        {
+            healthBar.maxValue = maxhealth;
+            healthBar.value = currenthealth; 
+        }
+    }
+    public void Takedamage (int damage)
+    {
+        currenthealth -= damage;
+        currenthealth = Mathf.Clamp(currenthealth, 0, maxhealth);
+       
+        if(healthBar != null)
+        { healthBar.value = currenthealth; }
+        if (currenthealth <= 0)
+        {
+            gameover();
+        }
+        void gameover() { SceneManager.LoadScene(1); }
+
     }
 
     // Update is called once per frame
     void Update()
     { 
-        if (playerhealth < 1)
-        {
-            SceneManager.LoadScene(2);
-
-        }
+        
        
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            playerhealth -= 2; 
-        }
+       
     }
 
 }

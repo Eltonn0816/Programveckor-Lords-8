@@ -7,7 +7,7 @@ public class PlayerDash2D : MonoBehaviour
     public float dashSpeed = 20f;         // Speed of the dash
     public float dashDuration = 0.2f;     // Duration of the dash
     public float dashCooldown = 1f;       // Time before you can dash again
-    private float dashCooldownTimer = 0f; // Timer to track cooldown
+    private float dashCooldownTimer = 3f; // Timer to track cooldown
 
     private bool isDashing = false;       // Whether the player is currently dashing
     private float dashTime = 0f;          // Timer to track dash duration
