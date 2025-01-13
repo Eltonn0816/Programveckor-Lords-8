@@ -29,7 +29,7 @@ public class Playermovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+       
         Vector2 movement = Vector2.zero; 
 
         if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
@@ -42,6 +42,17 @@ public class Playermovement : MonoBehaviour
         {
             animator.Play("walk left up");
             movement = new Vector2(-1, 1);
+            audioSource.mute = false;
+        }
+        else if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A))
+        {
+            animator.Play("down left walk");
+            movement = new Vector2(-1, -1);
+            audioSource.mute = false;
+        } else if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D))
+        {
+            animator.Play("knight right down walk");
+            movement = new Vector2(1, -1);
             audioSource.mute = false;
         }
         else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
