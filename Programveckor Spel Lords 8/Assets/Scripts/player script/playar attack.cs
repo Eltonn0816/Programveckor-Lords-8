@@ -6,12 +6,12 @@ public class PlayerAttack : MonoBehaviour
 {
     public float attackDamage = 20f;  // Damage dealt by the player's attack
     public float attackRange = 1f;    // Range of the attack
-    public LayerMask enemyLayer;      // The layer for enemy objects
+    public LayerMask Enemy;      // The layer for enemy objects
 
     private void Update()
     {
         // Trigger attack when pressing the left mouse button (or another key)
-        if (Input.GetMouseButtonDown(0))  // Left-click to attack
+        if (Input.GetKey(KeyCode.Space)) // Left-click to attack
         {
             Attack();
         }
@@ -20,7 +20,7 @@ public class PlayerAttack : MonoBehaviour
     void Attack()
     {
         // Cast a ray or perform a collider check to detect nearby enemies
-        Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(transform.position, attackRange, enemyLayer);
+        Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(transform.position, attackRange, Enemy);
 
         foreach (var enemy in enemiesHit)
         {
