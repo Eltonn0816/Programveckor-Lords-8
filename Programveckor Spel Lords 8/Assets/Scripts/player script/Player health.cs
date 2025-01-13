@@ -43,7 +43,7 @@ public class PlayerHP : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-       
+       //make a taking damage script
     }
 
 }
