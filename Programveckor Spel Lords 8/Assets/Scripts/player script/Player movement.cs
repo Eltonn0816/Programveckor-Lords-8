@@ -86,7 +86,7 @@ public class Playermovement : MonoBehaviour
         }
         if (movement != Vector2.zero)
         {
-            movement = movement .normalized * speed; 
+            movement = movement.normalized * speed; 
         }
         rb.velocity = movement;
     }

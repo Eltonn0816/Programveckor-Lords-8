@@ -20,7 +20,7 @@ public class PlayerHP : MonoBehaviour
             healthBar.value = currenthealth; 
         }
     }
-    public void Takedamage (int damage)
+    public void Takedamage (int damage = 20)
     {
         currenthealth -= damage;
         currenthealth = Mathf.Clamp(currenthealth, 0, maxhealth);
@@ -43,7 +43,11 @@ public class PlayerHP : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-       
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+           
+            Takedamage();
+        }
     }
 
 }

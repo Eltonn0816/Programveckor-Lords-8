@@ -17,5 +17,6 @@ public class Aggressive : MonoBehaviour
     {
         Vector3 direction = (player.position - transform.position).normalized;
         transform.position += direction * speed * Time.deltaTime;
+        direction = direction.normalized * speed; 
     }
 }

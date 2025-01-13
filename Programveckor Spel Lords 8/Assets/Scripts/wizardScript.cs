@@ -18,6 +18,8 @@ public class wizard : MonoBehaviour
     //kollar hur nära spelaren är.
     public bool playerIsClose;
 
+    public GameObject doorblock;
+    //door is blocked until dialogue is finished
    
     // Update is called once per frame
     void Update()
@@ -29,11 +31,13 @@ public class wizard : MonoBehaviour
             if (dialoguePanel.activeInHierarchy)
             {
                 zeroText();
+                
             }
             else
             {
                 dialoguePanel.SetActive(true);
                 StartCoroutine(Typing());
+               
             }
 
 
@@ -63,6 +67,7 @@ public class wizard : MonoBehaviour
             yield return new WaitForSeconds(worldSpeed);
 
         }
+         
     }
     //nästa råd text 
     public void NextLine()
@@ -78,6 +83,7 @@ public class wizard : MonoBehaviour
         else
         {
             zeroText();
+            doorblock.SetActive(false);
         }
 
     }

@@ -9,9 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/hub scene 2.unity
     guid: 26a3525bceaed0544a56c960bcf41b64
   - enabled: 1
-    path: Assets/Scenes/Level 1.unity
-    guid: 84746406fcdd3764295aea3e558cf80c
-  - enabled: 1
     path: Assets/Scenes/Gameover scene.unity
     guid: 23bd03f65a349644da873d7ca6363408
+  - enabled: 1
+    path: Assets/Scenes/Level 1.unity
+    guid: 84746406fcdd3764295aea3e558cf80c
   m_configObjects: {}
