@@ -364,7 +364,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 16365058}
-  Aim: {fileID: 0}
+  attackRange: 1
+  attackPrefab: {fileID: 0}
   speed: 8
 --- !u!114 &7689787
 MonoBehaviour:
