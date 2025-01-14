@@ -24,6 +24,15 @@ public class playercombat : MonoBehaviour
     void Update()
     {
        
+        
+     UpdateHitboxRotation(); // Update hitbox direction
+
+     if (Input.GetKeyDown(KeyCode.Space)) // Attack key
+     {
+        StartCoroutine(PerformAttack());
+     }
+     
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             StartCoroutine(PerformAttack());
@@ -58,4 +67,26 @@ public class playercombat : MonoBehaviour
             }
         }
     }
+
+    void UpdateHitboxRotation()
+    {
+        Vector2 direction = Vector2.zero;
+
+        // Determine facing direction
+        if (Input.GetKey(KeyCode.W)) direction = Vector2.up;        // Up
+        else if (Input.GetKey(KeyCode.S)) direction = Vector2.down; // Down
+        else if (Input.GetKey(KeyCode.A)) direction = Vector2.left; // Left
+        else if (Input.GetKey(KeyCode.D)) direction = Vector2.right; // Right
+
+        // Update rotation
+        if (direction == Vector2.up)
+            attackHitbox.transform.rotation = Quaternion.Euler(0, 0, 90); // Up
+        else if (direction == Vector2.down)
+            attackHitbox.transform.rotation = Quaternion.Euler(0, 0, -90); // Down
+        else if (direction == Vector2.left)
+            attackHitbox.transform.rotation = Quaternion.Euler(0, 0, 180); // Left
+        else if (direction == Vector2.right)
+            attackHitbox.transform.rotation = Quaternion.Euler(0, 0, 0); // Right
+    }
+
 }
