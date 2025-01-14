@@ -24,9 +24,8 @@ public class playercombat : MonoBehaviour
     void Update()
     {
        
-        if (Input.GetKey(KeyCode.D) && Input.GetKeyDown(KeyCode.Space) && !isAttacking)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            animator.Play("1 click rv punch");
             StartCoroutine(PerformAttack());
         }
         UpdateHitboxPosition();
