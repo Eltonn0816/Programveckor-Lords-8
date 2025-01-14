@@ -5,10 +5,8 @@ using UnityEngine;
 public class playercombat : MonoBehaviour
 {
     public BoxCollider2D attackHitbox;
-    public float attackDuration = 0.1f;
+    public float attackDuration = 0.5f;
 
-    private Vector2 rightPosition = new Vector2(1f, 0f); // Position when facing right
-    private Vector2 leftPosition = new Vector2(-1f, 0f); // Position when facing left
 
     private bool isAttacking = false;
     Animator animator;
@@ -17,42 +15,38 @@ public class playercombat : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>(); 
+        animator = GetComponent<Animator>();
+        attackHitbox.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-       
-        
-     UpdateHitboxRotation(); // Update hitbox direction
 
-     if (Input.GetKeyDown(KeyCode.Space)) // Attack key
-     {
-        StartCoroutine(PerformAttack());
-     }
-     
+        UpdateHitboxRotation(); // Update hitbox direction
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !isAttacking) // Attack key
         {
             StartCoroutine(PerformAttack());
         }
-        UpdateHitboxPosition();
-    }
-    void UpdateHitboxPosition()
-    {
-        // Detect the player's facing direction
-        float playerDirection = transform.localScale.x > 0 ? 1 : -1;
-        attackHitbox.offset = playerDirection > 0 ? rightPosition : leftPosition;
     }
 
-    System.Collections.IEnumerator PerformAttack()
+
+    private IEnumerator PerformAttack()
     {
-        isAttacking = true; //enables attacking
-        attackHitbox.enabled = true; //enables hitbox
-        yield return new WaitForSeconds(attackDuration); //waits for the attack duration
-        attackHitbox.enabled = false; //disables hitbox
-        isAttacking = false; //disables attacking
+        isAttacking = true; // Mark as attacking
+        attackHitbox.enabled = true; // Enable the hitbox
+
+      // Play attack animation if you have one
+      // if (animator != null)
+      //{
+      // animator.SetTrigger("Attack");
+      //  }
+
+        yield return new WaitForSeconds(attackDuration); // Wait for the attack duration
+
+        attackHitbox.enabled = false; // Disable the hitbox
+        isAttacking = false; // Reset attacking state
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -64,6 +58,7 @@ public class playercombat : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(35);
+                isAttacking = false;
             }
         }
     }
