@@ -88,11 +88,32 @@ public class Playermovement : MonoBehaviour
             audioSource.mute = false;
             lastDirection = movement.normalized;
         }
-        else 
+        else if (lastDirection == new Vector2(1, 0))
+
         {
-            animator.Play("idel knight");
+            animator.Play("idel right");
             audioSource.mute = true;
+            //idel right
         }
+        else if (lastDirection == new Vector2(-1, 0))
+        {
+            animator.Play("idel left");
+            audioSource.mute = true;
+            //idel left
+        }
+        else if (lastDirection == new Vector2(0, 1) || lastDirection == new Vector2(-1, 1) || (lastDirection == new Vector2(1, 1)))
+        {
+            animator.Play("idel front");
+            audioSource.mute = true;
+            //idel up ( left and right up as well) 
+        }
+        else if (lastDirection == new Vector2(0, -1) || (lastDirection == new Vector2(1, -1) || (lastDirection == new Vector2(-1, -1))))
+        {
+            animator.Play("idel back");
+            audioSource.mute = true;
+            //idel down (left and right down as well
+        }
+
         if (movement != Vector2.zero)
         {
             movement = movement.normalized * speed; 
@@ -103,7 +124,6 @@ public class Playermovement : MonoBehaviour
         {
             attack();
         }
-
     }
     void attack()
     {
