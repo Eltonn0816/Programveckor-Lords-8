@@ -12,12 +12,12 @@ public class PlayerHP : MonoBehaviour
     public Slider healthBar; 
     void Start()
     {
-        currenthealth = maxhealth; 
-
-        if(healthBar != null)
+        currenthealth = maxhealth;
+        
+        if (healthBar != null)
         {
             healthBar.maxValue = maxhealth;
-            healthBar.value = currenthealth; 
+            healthBar.value = Mathf.Round(currenthealth);
         }
     }
     public void Takedamage (int damage = 20)
@@ -37,16 +37,15 @@ public class PlayerHP : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { 
-        
+    {
        
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-           
-            Takedamage();
+         Takedamage();
         }
     }
 
