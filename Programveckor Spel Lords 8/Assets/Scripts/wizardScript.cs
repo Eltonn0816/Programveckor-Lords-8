@@ -17,7 +17,7 @@ public class wizard : MonoBehaviour
     public float worldSpeed;
     //kollar hur nära spelaren är.
     public bool playerIsClose;
-
+    public GameObject Secretghost;
     public GameObject doorblock;
     //door is blocked until dialogue is finished
    
@@ -84,6 +84,7 @@ public class wizard : MonoBehaviour
         {
             zeroText();
             doorblock.SetActive(false);
+            Secretghost.SetActive(false);
         }
 
     }
