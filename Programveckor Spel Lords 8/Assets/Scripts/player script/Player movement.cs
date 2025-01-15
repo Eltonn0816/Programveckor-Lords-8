@@ -164,12 +164,12 @@ public class Playermovement : MonoBehaviour
         }
         else if (lastDirection == new Vector2(0, 1) || lastDirection == new Vector2(-1, 1) || (lastDirection == new Vector2(1, 1)))
         {
-            animator.Play("");
+            animator.Play("dubbel attack up");
             //attack up ( left and right up as well) dubbel
         }
         else if (lastDirection == new Vector2(0, -1) || (lastDirection == new Vector2(1, -1) || (lastDirection == new Vector2(-1, -1))))
         {
-            animator.Play("");
+            animator.Play("dubbel attack down");
             //attack down (left and right down as well dubbel
         }
     }
@@ -187,12 +187,12 @@ public class Playermovement : MonoBehaviour
         }
         else if (lastDirection == new Vector2(0, 1) || lastDirection == new Vector2(-1, 1) || (lastDirection == new Vector2(1, 1)))
         {
-            animator.Play("");
+            animator.Play("up attack");
             //attack up ( left and right up as well) singel
         }
         else if (lastDirection == new Vector2(0, -1) || (lastDirection == new Vector2(1, -1) || (lastDirection == new Vector2(-1, -1))))
         {
-            animator.Play("");
+            animator.Play("attack down");
             //attack down (left and right down as well singel
         }
     }
