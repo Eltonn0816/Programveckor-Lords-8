@@ -1716,6 +1716,7 @@ MonoBehaviour:
   continueButton: {fileID: 879475477}
   worldSpeed: 0.06
   playerIsClose: 0
+  Secretghost: {fileID: 0}
   doorblock: {fileID: 0}
 --- !u!61 &1807325552
 BoxCollider2D:

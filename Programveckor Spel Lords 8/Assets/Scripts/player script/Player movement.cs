@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Unity.Collections;
 using Unity.Mathematics;
 using Unity.VisualScripting;
@@ -12,6 +13,10 @@ public class Playermovement : MonoBehaviour
     Vector2 lastDirection = Vector2.zero;
     public float attackRange = 1.0f;
     public GameObject attackPrefab;
+    // senaste attacken
+    private float lastKlickTime = 0f;
+    // tiden mellan attacker flr dubbel ska räknas 
+    private float dubbelKlickTrashehold = 0.3f; 
 
     Animator animator;
     Rigidbody2D rb;
@@ -32,7 +37,7 @@ public class Playermovement : MonoBehaviour
     {
        
         Vector2 movement = Vector2.zero; 
-
+        
         if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
         {
             animator.Play("right up knight walk");
@@ -127,26 +132,16 @@ public class Playermovement : MonoBehaviour
     }
     void attack()
     {
-        if (lastDirection == new Vector2(1, 0))
+        float currentTime = Time.time; 
+        if(currentTime - lastKlickTime <= dubbelKlickTrashehold)
         {
-            animator.Play("");
-            //attack right
+           PlayDoubleClickAttackAnimation();
         }
-        else if (lastDirection == new Vector2(-1, 0))
+        else
         {
-            animator.Play("");
-            //attack left
+           PlaySingleClickAttackAnimation();
         }
-        else if (lastDirection == new Vector2(0, 1) || lastDirection == new Vector2(-1, 1) || (lastDirection == new Vector2(1, 1)))
-        {
-            animator.Play("");
-            //attack up ( left and right up as well) 
-        }
-        else if (lastDirection == new Vector2(0,-1) || (lastDirection == new Vector2(1, -1) || (lastDirection == new Vector2(-1, -1))))
-        {
-            animator.Play(""); 
-            //attack down (left and right down as well
-        }
+        lastKlickTime = currentTime; // upptaterad senaste ckick
         
         // attack blockens skript
         if(attackPrefab)
@@ -154,7 +149,51 @@ public class Playermovement : MonoBehaviour
             Vector3 spawnPosition = transform.position + (Vector3)lastDirection * attackRange;
             Instantiate(attackPrefab, spawnPosition, Quaternion.identity); 
         }
-
-
+    }
+    void PlayDoubleClickAttackAnimation()
+    {
+        if (lastDirection == new Vector2(1, 0))
+        {
+            animator.Play("dubbel right attack");
+            //attack right dubbel
+        }
+        else if (lastDirection == new Vector2(-1, 0))
+        {
+            animator.Play("dubbel attack left");
+            //attack left dubbel
+        }
+        else if (lastDirection == new Vector2(0, 1) || lastDirection == new Vector2(-1, 1) || (lastDirection == new Vector2(1, 1)))
+        {
+            animator.Play("");
+            //attack up ( left and right up as well) dubbel
+        }
+        else if (lastDirection == new Vector2(0, -1) || (lastDirection == new Vector2(1, -1) || (lastDirection == new Vector2(-1, -1))))
+        {
+            animator.Play("");
+            //attack down (left and right down as well dubbel
+        }
+    }
+    void PlaySingleClickAttackAnimation()
+    {
+        if (lastDirection == new Vector2(1, 0))
+        {
+            animator.Play("attack right");
+            //attack right singel
+        }
+        else if (lastDirection == new Vector2(-1, 0))
+        {
+            animator.Play("attack left");
+            //attack left singel
+        }
+        else if (lastDirection == new Vector2(0, 1) || lastDirection == new Vector2(-1, 1) || (lastDirection == new Vector2(1, 1)))
+        {
+            animator.Play("");
+            //attack up ( left and right up as well) singel
+        }
+        else if (lastDirection == new Vector2(0, -1) || (lastDirection == new Vector2(1, -1) || (lastDirection == new Vector2(-1, -1))))
+        {
+            animator.Play("");
+            //attack down (left and right down as well singel
+        }
     }
 }
