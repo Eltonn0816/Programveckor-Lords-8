@@ -10,13 +10,14 @@ public class Playermovement : MonoBehaviour
 {
     public AudioSource audioSource;
     //för attack
+    bool isAttacking = false;
     Vector2 lastDirection = Vector2.zero;
     public float attackRange = 1.0f;
     public GameObject attackPrefab;
     // senaste attacken
     private float lastKlickTime = 0f;
     // tiden mellan attacker flr dubbel ska räknas 
-    private float dubbelKlickTrashehold = 0.3f; 
+    private float dubbelKlickTrashehold = 2.5f; 
 
     Animator animator;
     Rigidbody2D rb;
@@ -35,7 +36,7 @@ public class Playermovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        animator.SetLayerWeight(1, isAttacking ? 0 : 1); 
         Vector2 movement = Vector2.zero; 
         
         if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
@@ -132,8 +133,10 @@ public class Playermovement : MonoBehaviour
     }
     void attack()
     {
-        float currentTime = Time.time; 
-        if(currentTime - lastKlickTime <= dubbelKlickTrashehold)
+        float currentTime = Time.time;
+        isAttacking = true;
+
+        if (currentTime - lastKlickTime <= dubbelKlickTrashehold)
         {
            PlayDoubleClickAttackAnimation();
         }
@@ -149,27 +152,33 @@ public class Playermovement : MonoBehaviour
             Vector3 spawnPosition = transform.position + (Vector3)lastDirection * attackRange;
             Instantiate(attackPrefab, spawnPosition, Quaternion.identity); 
         }
+       
+        Invoke(nameof(EndAttack), 0.717f);
+    }
+    void EndAttack()
+    {
+        isAttacking = false;
     }
     void PlayDoubleClickAttackAnimation()
     {
         if (lastDirection == new Vector2(1, 0))
         {
-            animator.Play("dubbel right attack");
+            animator.SetTrigger("dubbel right attack");
             //attack right dubbel
         }
         else if (lastDirection == new Vector2(-1, 0))
         {
-            animator.Play("dubbel attack left");
+            animator.SetTrigger("dubbel attack left");
             //attack left dubbel
         }
         else if (lastDirection == new Vector2(0, 1) || lastDirection == new Vector2(-1, 1) || (lastDirection == new Vector2(1, 1)))
         {
-            animator.Play("dubbel attack up");
+            animator.SetTrigger("dubbel attack up");
             //attack up ( left and right up as well) dubbel
         }
         else if (lastDirection == new Vector2(0, -1) || (lastDirection == new Vector2(1, -1) || (lastDirection == new Vector2(-1, -1))))
         {
-            animator.Play("dubbel attack down");
+            animator.SetTrigger("dubbel attack down");
             //attack down (left and right down as well dubbel
         }
     }
@@ -177,22 +186,22 @@ public class Playermovement : MonoBehaviour
     {
         if (lastDirection == new Vector2(1, 0))
         {
-            animator.Play("attack right");
+            animator.SetTrigger("attack right");
             //attack right singel
         }
         else if (lastDirection == new Vector2(-1, 0))
         {
-            animator.Play("attack left");
+            animator.SetTrigger("attack left");
             //attack left singel
         }
         else if (lastDirection == new Vector2(0, 1) || lastDirection == new Vector2(-1, 1) || (lastDirection == new Vector2(1, 1)))
         {
-            animator.Play("up attack");
+            animator.SetTrigger("up attack");
             //attack up ( left and right up as well) singel
         }
         else if (lastDirection == new Vector2(0, -1) || (lastDirection == new Vector2(1, -1) || (lastDirection == new Vector2(-1, -1))))
         {
-            animator.Play("attack down");
+            animator.SetTrigger("attack down");
             //attack down (left and right down as well singel
         }
     }
