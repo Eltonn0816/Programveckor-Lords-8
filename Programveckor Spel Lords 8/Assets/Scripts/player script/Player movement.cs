@@ -17,7 +17,7 @@ public class Playermovement : MonoBehaviour
     // senaste attacken
     private float lastKlickTime = 0f;
     // tiden mellan attacker flr dubbel ska räknas 
-    private float dubbelKlickTrashehold = 2.5f; 
+    private float dubbelKlickTrashehold = 1.2f; 
 
     Animator animator;
     Rigidbody2D rb;
@@ -131,10 +131,18 @@ public class Playermovement : MonoBehaviour
             attack();
         }
     }
+    IEnumerator WaitForAnimationEnd()
+    {
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(1); // Layer 1
+        yield return new WaitForSeconds(stateInfo.length);
+        EndAttack();
+    }
     void attack()
     {
         float currentTime = Time.time;
         isAttacking = true;
+        
+        StartCoroutine(WaitForAnimationEnd());
 
         if (currentTime - lastKlickTime <= dubbelKlickTrashehold)
         {
@@ -152,8 +160,7 @@ public class Playermovement : MonoBehaviour
             Vector3 spawnPosition = transform.position + (Vector3)lastDirection * attackRange;
             Instantiate(attackPrefab, spawnPosition, Quaternion.identity); 
         }
-       
-        Invoke(nameof(EndAttack), 0.717f);
+
     }
     void EndAttack()
     {
@@ -161,6 +168,7 @@ public class Playermovement : MonoBehaviour
     }
     void PlayDoubleClickAttackAnimation()
     {
+        ResetAttackTriggers();
         if (lastDirection == new Vector2(1, 0))
         {
             animator.SetTrigger("dubbel right attack");
@@ -181,9 +189,11 @@ public class Playermovement : MonoBehaviour
             animator.SetTrigger("dubbel attack down");
             //attack down (left and right down as well dubbel
         }
+        
     }
     void PlaySingleClickAttackAnimation()
     {
+        ResetAttackTriggers();
         if (lastDirection == new Vector2(1, 0))
         {
             animator.SetTrigger("attack right");
@@ -204,5 +214,19 @@ public class Playermovement : MonoBehaviour
             animator.SetTrigger("attack down");
             //attack down (left and right down as well singel
         }
+        
+    }
+
+    // just in case reseting tirggers who knows it might help
+    void ResetAttackTriggers()
+    {
+        animator.ResetTrigger("dubbel right attack");
+        animator.ResetTrigger("dubbel attack left");
+        animator.ResetTrigger("dubbel attack up");
+        animator.ResetTrigger("dubbel attack down");
+        animator.ResetTrigger("attack right");
+        animator.ResetTrigger("attack left");
+        animator.ResetTrigger("up attack");
+        animator.ResetTrigger("attack down");
     }
 }
