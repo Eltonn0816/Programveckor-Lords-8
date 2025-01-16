@@ -125,10 +125,14 @@ public class Playermovement : MonoBehaviour
             movement = movement.normalized * speed; 
         }
         rb.velocity = movement;
-        // kollar om vi trycker på space
-        if(Input.GetKeyDown(KeyCode.Space))
+        // om du attackera kan du inte attackera en gång till
+        if (!isAttacking)
         {
-            attack();
+            // kollar om vi trycker på space
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                attack();
+            }
         }
     }
     IEnumerator WaitForAnimationEnd()
