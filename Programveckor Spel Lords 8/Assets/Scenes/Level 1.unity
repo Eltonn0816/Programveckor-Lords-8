@@ -3429,7 +3429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackHitbox: {fileID: 2057855147}
-  attackDuration: 0.2
+  attackDuration: 0.8
 --- !u!1 &1448983115
 GameObject:
   m_ObjectHideFlags: 0

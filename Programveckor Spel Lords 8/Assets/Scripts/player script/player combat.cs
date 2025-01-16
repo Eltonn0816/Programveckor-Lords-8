@@ -37,12 +37,6 @@ public class playercombat : MonoBehaviour
         isAttacking = true; // Mark as attacking
         attackHitbox.enabled = true; // Enable the hitbox
 
-      // Play attack animation if you have one
-      // if (animator != null)
-      //{
-      // animator.SetTrigger("Attack");
-      //  }
-
         yield return new WaitForSeconds(attackDuration); // Wait for the attack duration
 
         attackHitbox.enabled = false; // Disable the hitbox
