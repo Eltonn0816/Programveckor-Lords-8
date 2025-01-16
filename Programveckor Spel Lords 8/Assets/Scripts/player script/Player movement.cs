@@ -10,6 +10,7 @@ public class Playermovement : MonoBehaviour
 {
     public AudioSource audioSource;
     //för attack
+    private bool isFirstPunch = true;
     bool isAttacking = false;
     Vector2 lastDirection = Vector2.zero;
     public float attackRange = 1.0f;
@@ -17,7 +18,7 @@ public class Playermovement : MonoBehaviour
     // senaste attacken
     private float lastKlickTime = 0f;
     // tiden mellan attacker flr dubbel ska räknas 
-    private float dubbelKlickTrashehold = 1.2f; 
+    private float dubbelKlickTrashehold = 1.5f; 
 
     Animator animator;
     Rigidbody2D rb;
@@ -144,18 +145,21 @@ public class Playermovement : MonoBehaviour
     void attack()
     {
         float currentTime = Time.time;
+        if (isAttacking)  return;
         isAttacking = true;
-        
+
         StartCoroutine(WaitForAnimationEnd());
 
-        if (currentTime - lastKlickTime <= dubbelKlickTrashehold)
+        if (currentTime - lastKlickTime <= dubbelKlickTrashehold && isFirstPunch == false)
         {
            PlayDoubleClickAttackAnimation();
         }
         else
         {
            PlaySingleClickAttackAnimation();
+           isFirstPunch = false;
         }
+        isFirstPunch = currentTime - lastKlickTime > dubbelKlickTrashehold;
         lastKlickTime = currentTime; // upptaterad senaste ckick
         
         // attack blockens skript
@@ -193,6 +197,7 @@ public class Playermovement : MonoBehaviour
             animator.SetTrigger("dubbel attack down");
             //attack down (left and right down as well dubbel
         }
+        isFirstPunch = true;
         
     }
     void PlaySingleClickAttackAnimation()
@@ -218,7 +223,9 @@ public class Playermovement : MonoBehaviour
             animator.SetTrigger("attack down");
             //attack down (left and right down as well singel
         }
-        
+
+
+
     }
 
     // just in case reseting tirggers who knows it might help
