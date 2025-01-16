@@ -3,24 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Enterdoorscript : MonoBehaviour
+public class doorToVikings : MonoBehaviour
 {
+    // Start is called before the first frame update
 
     public bool playerIsClose;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
-    
+
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && playerIsClose)
         {
-            SceneManager.LoadScene(1); //ändra scene nummer till level 1 när vi har den 
+            SceneManager.LoadScene(3); //ändra scene nummer till level 1 när vi har den 
         }
-        
+
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
