@@ -19,7 +19,7 @@ public class doorToVikings : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && playerIsClose)
         {
-            SceneManager.LoadScene(3); //ändra scene nummer till level 1 när vi har den 
+            SceneManager.LoadScene(2); //ändra scene nummer till level 1 när vi har den 
         }
 
     }
