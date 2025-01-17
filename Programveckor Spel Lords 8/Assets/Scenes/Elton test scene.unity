@@ -1024,7 +1024,7 @@ MonoBehaviour:
   m_CategoryHash: 3.6641534e-16
   m_labelHash: 0.0000001489224
   m_SpriteKey: 0
-  m_SpriteHash: 323518056
+  m_SpriteHash: 789241065
 --- !u!114 &1188478170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1194,7 +1194,7 @@ MonoBehaviour:
     - m_Name: Entry_9
       m_Hash: 0
       m_Sprite: {fileID: 21300000, guid: a9aab2280e5b59e42a0f69222d2d0e6a, type: 3}
-  - m_Name: vikingattackBW
+  - m_Name: vikingattackBV
     m_Hash: 0
     m_CategoryList:
     - m_Name: Entry
@@ -1227,6 +1227,78 @@ MonoBehaviour:
     - m_Name: Entry_8
       m_Hash: 0
       m_Sprite: {fileID: 21300000, guid: 6e93b1e5bd8222745b44ff331df46e97, type: 3}
+  - m_Name: vikingattackRV
+    m_Hash: 0
+    m_CategoryList:
+    - m_Name: Entry
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: 1a4f021bdd57d8c4c9c57501f5d42156, type: 3}
+    - m_Name: Entry_0
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: cc6d15bb7ba5a104aa83a4385862950d, type: 3}
+    - m_Name: Entry_1
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: 3c2f4b7b1135ed14ba76339c5a39ae1a, type: 3}
+    - m_Name: Entry_2
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: 4b97562998165824daaa1077f47b75f5, type: 3}
+    - m_Name: Entry_3
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: 9f025585699539d4fb850600562c2671, type: 3}
+    - m_Name: Entry_4
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: d7fccf9d6989b13489fa5865ebd4d298, type: 3}
+    - m_Name: Entry_5
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: 1a865cd41037d7140b08f004bac0c73f, type: 3}
+    - m_Name: Entry_6
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: dcfee012bfd3f3147b9f368a083d0bfc, type: 3}
+    - m_Name: Entry_7
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: b8be38aff97df5142be812b74cea95a8, type: 3}
+    - m_Name: Entry_8
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: 52f675c220fae7d4d8726407c981dda5, type: 3}
+    - m_Name: Entry_9
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: 06eb559ea4514254da5bdbf03a693d21, type: 3}
+  - m_Name: vikingattackLV
+    m_Hash: 0
+    m_CategoryList:
+    - m_Name: Entry
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: cf7f0634603fc6940981118875f99035, type: 3}
+    - m_Name: Entry_0
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: 02bf7627e78b3be4aa02be2c645c5660, type: 3}
+    - m_Name: Entry_1
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: 52390e25c3c9f8348bd40865862abfac, type: 3}
+    - m_Name: Entry_2
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: 41065989923e0d84d93920eff97f7f49, type: 3}
+    - m_Name: Entry_3
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: 565e87bbe5a24d446a28f8ea42757614, type: 3}
+    - m_Name: Entry_4
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: de12dab3af209824785c27c0503f6682, type: 3}
+    - m_Name: Entry_5
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: 5561380ab8b78d44cbc366c6184abfba, type: 3}
+    - m_Name: Entry_6
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: 57cf45fb476d84841a66995667fc75c0, type: 3}
+    - m_Name: Entry_7
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: 3eb26742e8fcdca48a48d5637f59e68a, type: 3}
+    - m_Name: Entry_8
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: b22425ea0838b7e40807d67ee101fa40, type: 3}
+    - m_Name: Entry_9
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: 52d5ad73fa3702a469f662647d242b21, type: 3}
   m_SpriteLibraryAsset: {fileID: 0}
 --- !u!212 &1188478171
 SpriteRenderer:
@@ -1269,7 +1341,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 82f8f26806daeed4389d4bded328a1e5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cf7f0634603fc6940981118875f99035, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
