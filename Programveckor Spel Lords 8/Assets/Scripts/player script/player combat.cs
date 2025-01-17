@@ -6,7 +6,7 @@ public class playercombat : MonoBehaviour
 {
     public BoxCollider2D attackHitbox;
     public float attackDuration = 0.5f;
-
+    public AudioSource audioSource;
 
     private bool isAttacking = false;
     Animator animator;
@@ -17,6 +17,8 @@ public class playercombat : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         attackHitbox.enabled = false;
+        audioSource.mute = true;
+
     }
 
     // Update is called once per frame
@@ -28,6 +30,8 @@ public class playercombat : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && !isAttacking) // Attack key
         {
             StartCoroutine(PerformAttack());
+            audioSource.mute = false;
+
         }
     }
 
@@ -41,6 +45,8 @@ public class playercombat : MonoBehaviour
 
         attackHitbox.enabled = false; // Disable the hitbox
         isAttacking = false; // Reset attacking state
+        audioSource.mute = true;
+
     }
 
     void OnTriggerEnter2D(Collider2D collision)
