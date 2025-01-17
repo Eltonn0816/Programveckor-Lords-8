@@ -57,21 +57,13 @@ public class Aggressive : MonoBehaviour
         {
             if (player.transform.position.y > transform.position.y)
             {
-                if (playerIsClose = true)
-                {
-                    newanimation = "vikingattackBW";
-                }
-                else { newanimation = "vikingwalkBW"; }
+               
+                newanimation = "vikingwalkBW"; 
             }
 
             else
             {
-
-                if (playerIsClose = true)
-                {
-                    newanimation = "vikingattackFW";
-                }
-                else { newanimation = "vikingwalkFW"; }
+              newanimation = "vikingwalkFW"; 
             }
         }
 

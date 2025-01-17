@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/cave man.unity
     guid: 9a65cfe0124dd5040871ba919aeeab69
+  - enabled: 1
+    path: Assets/Scenes/winscene.unity
+    guid: 98248b11f04aab84c831f20ef55bade8
   m_configObjects: {}
