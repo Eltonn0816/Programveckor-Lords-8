@@ -15,13 +15,14 @@ public class interactTextscript : MonoBehaviour
         {
             interactText.SetActive(false);
         }
-        
+
     }
-    void OnTriggerEnter(Collider other)
+   
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            IsPlayerClose = true;
+                IsPlayerClose = true;
             if (interactText != null)
             {
                 interactText.SetActive(true);
@@ -29,7 +30,7 @@ public class interactTextscript : MonoBehaviour
         }
     }
 
-    void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {

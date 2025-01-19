@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/labyrinth.unity
     guid: eabc25582e692b14691e3517f9b56ff3
   - enabled: 1
-    path: Assets/Scenes/Level 1.unity
+    path: Assets/Scenes/Level viking.unity
     guid: 84746406fcdd3764295aea3e558cf80c
   - enabled: 1
     path: Assets/Scenes/Gameover scene.unity
