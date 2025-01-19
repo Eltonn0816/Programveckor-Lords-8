@@ -1,16 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
+    //particles when enemy get hit 
+    public ParticleSystem damagaParticles;
+
     public float health = 100f;  
-    public float damageTaken = 35f; 
+    public float damageTaken = 35f;
+
+    private ParticleSystem damageParticlesInstance; 
 
     // This method will be called when the enemy is hit
     public void TakeDamage(float damage)
     {
-        health -= damage; 
+        health -= damage;
+        spawnDamagaParticles();
         if (health <= 1)
         {
             Die();  // Call the die method if health reaches 0
@@ -37,5 +44,11 @@ public class EnemyHealth : MonoBehaviour
     {
         Destroy(gameObject);  // Trigger death animation first
     }
+
+    private void spawnDamagaParticles()
+    {
+        damageParticlesInstance = Instantiate(damagaParticles, transform.position, Quaternion.identity);
+    }
+
 }
 
