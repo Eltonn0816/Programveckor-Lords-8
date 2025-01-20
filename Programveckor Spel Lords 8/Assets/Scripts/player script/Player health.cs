@@ -8,6 +8,8 @@ using System.Security.Cryptography.X509Certificates;
 
 public class PlayerHP : MonoBehaviour
 {
+    private ParticleSystem healingParticlesInstante;
+    public ParticleSystem healingParticles;
     int healthFlaskLeft;
     public Image flaskImage;
     public Sprite fullFlaskSprite;
@@ -20,7 +22,7 @@ public class PlayerHP : MonoBehaviour
     public Slider healthBar; 
     void Start()
     {
-        healthFlaskLeft = 4; 
+        healthFlaskLeft = 3; 
         currenthealth = maxhealth;
         
         if (healthBar != null)
@@ -53,6 +55,7 @@ public class PlayerHP : MonoBehaviour
         { healthBar.value = currenthealth; }
         if (Input.GetKeyDown(KeyCode.R) && healthFlaskLeft != 0)
         {
+            healingParticlesInstante = Instantiate(healingParticles, transform.position, Quaternion.identity);
             healing();
         }
 
@@ -80,20 +83,20 @@ public class PlayerHP : MonoBehaviour
 
         switch (healthFlaskLeft)
         {
-            case 4:
+            case 3:
                 flaskImage.sprite = fullFlaskSprite;
             break;
 
-            case 3:
+            case 2:
                  flaskImage.sprite = halfFlaskSprite;
             break;
 
-            case 2:
+            case 1:
                 flaskImage.sprite = lessFlaskSprite;
             break;
 
-            case 1:
-                flaskImage.sprite = EmptyFlaskSprite;
+            default:
+            flaskImage.sprite = EmptyFlaskSprite;
             break; 
 
         }
