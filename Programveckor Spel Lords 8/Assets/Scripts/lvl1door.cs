@@ -17,7 +17,7 @@ public class lvl1door : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && playerIsClose)
         {
-            SceneManager.LoadScene(5); //ändra scene nummer till level 1 när vi har den 
+            SceneManager.LoadScene(1); //ändra scene nummer till level 1 när vi har den 
         }
     }
     private void OnTriggerEnter2D(Collider2D other)

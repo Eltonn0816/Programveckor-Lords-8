@@ -3,15 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI; 
 using UnityEngine.SceneManagement;
+using System.Security.Cryptography.X509Certificates;
 
 
 public class PlayerHP : MonoBehaviour
 {
+    int healthFlaskLeft;
+    public Image flaskImage;
+    public Sprite fullFlaskSprite;
+    public Sprite halfFlaskSprite;
+    public Sprite lessFlaskSprite;
+    public Sprite EmptyFlaskSprite;
+
     public int maxhealth = 100;
     public int currenthealth;
     public Slider healthBar; 
     void Start()
     {
+        healthFlaskLeft = 4; 
         currenthealth = maxhealth;
         
         if (healthBar != null)
@@ -19,6 +28,8 @@ public class PlayerHP : MonoBehaviour
             healthBar.maxValue = maxhealth;
             healthBar.value = Mathf.Round(currenthealth);
         }
+
+        uppdateFlaskSprite();
     }
     public void Takedamage (int damage = 20)
     {
@@ -38,7 +49,12 @@ public class PlayerHP : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        if (healthBar != null)
+        { healthBar.value = currenthealth; }
+        if (Input.GetKeyDown(KeyCode.R) && healthFlaskLeft != 0)
+        {
+            healing();
+        }
 
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -47,6 +63,41 @@ public class PlayerHP : MonoBehaviour
         {
          Takedamage();
         }
+    }
+
+    void healing()
+    {
+        currenthealth += 40;
+        currenthealth = Mathf.Clamp(currenthealth, 0, maxhealth);
+        healthFlaskLeft -= 1;
+
+        uppdateFlaskSprite();
+    }
+
+    void uppdateFlaskSprite()
+    {
+        if (flaskImage == null) return;
+
+        switch (healthFlaskLeft)
+        {
+            case 4:
+                flaskImage.sprite = fullFlaskSprite;
+            break;
+
+            case 3:
+                 flaskImage.sprite = halfFlaskSprite;
+            break;
+
+            case 2:
+                flaskImage.sprite = lessFlaskSprite;
+            break;
+
+            case 1:
+                flaskImage.sprite = EmptyFlaskSprite;
+            break; 
+
+        }
+
     }
 
 }
