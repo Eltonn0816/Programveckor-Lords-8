@@ -18,7 +18,7 @@ public class Playermovement : MonoBehaviour
     // senaste attacken
     private float lastKlickTime = 0f;
     // tiden mellan attacker flr dubbel ska räknas 
-    private float dubbelKlickTrashehold = 1.5f; 
+    private float dubbelKlickTrashehold = 2f; 
 
     Animator animator;
     Rigidbody2D rb;
