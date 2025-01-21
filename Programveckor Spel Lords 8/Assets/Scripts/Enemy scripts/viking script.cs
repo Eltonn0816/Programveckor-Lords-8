@@ -20,7 +20,7 @@ public class Aggressive : MonoBehaviour
         {
             playerIsClose = true;
         }
-        else { playerIsClose = false; }
+       
     }
     private void OnTriggerExit2D(Collider2D other)
     {
@@ -28,12 +28,11 @@ public class Aggressive : MonoBehaviour
         {
             playerIsClose = false;
         }
-
     }
     // Update is called once per frame
     void Update()
     {
-       
+        print(playerIsClose);
         string newanimation = null;
         Vector3 direction = (player.position - transform.position).normalized;
         transform.position += direction * speed * Time.deltaTime;
@@ -43,27 +42,54 @@ public class Aggressive : MonoBehaviour
            
             if (player.transform.position.x > transform.position.x)
             {
-                if (playerIsClose = true)
+                if (playerIsClose == true)
                 {
-                    //play vikingattack right
+                    newanimation = "vikingattackRW";
                 }
-                newanimation = "vikingwalkRW";
+                else if (playerIsClose == false) 
+                { 
+                    newanimation = "vikingwalkRW"; 
+                }
             }
 
-            else
-            { newanimation = "vikingwalkLW"; }
+            else 
+            {
+                if (playerIsClose == true)
+                {
+                    newanimation = "vikingattackLW";
+                }
+                else if (playerIsClose == false)
+                {
+                    newanimation = "vikingwalkLW";
+                }
+            
+            }
         }
         else
         {
             if (player.transform.position.y > transform.position.y)
             {
-               
-                newanimation = "vikingwalkBW"; 
+                if (playerIsClose == true)
+                { 
+                    newanimation = "vikingattackBW";
+                }
+                else if (playerIsClose == false)
+                {
+                    newanimation = "vikingwalkBW";
+                }
             }
 
             else
             {
-              newanimation = "vikingwalkFW"; 
+              if (playerIsClose == true)
+                {
+                    newanimation = "vikingattackFW";
+                }
+              else if( playerIsClose == false)
+                {
+                    newanimation = "vikingwalkFW";
+                }
+             
             }
         }
 
