@@ -45,55 +45,55 @@ public class Playermovement : MonoBehaviour
             animator.Play("right up knight walk");
             movement = new Vector2(1, 1);
             audioSource.mute = false;
-            lastDirection = movement.normalized;
+            lastDirection = movement;
         }
         else if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.W))
         {
             animator.Play("walk left up");
             movement = new Vector2(-1, 1);
             audioSource.mute = false;
-            lastDirection = movement.normalized;
+            lastDirection = movement;
         }
         else if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A))
         {
             animator.Play("down left walk");
             movement = new Vector2(-1, -1);
             audioSource.mute = false;
-            lastDirection = movement.normalized;
+            lastDirection = movement;
         } else if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D))
         {
             animator.Play("knight right down walk");
             movement = new Vector2(1, -1);
             audioSource.mute = false;
-            lastDirection = movement.normalized;
+            lastDirection = movement;
         }
         else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             movement = new Vector2(1, 0);
             animator.Play("walk right knight");
             audioSource.mute = false;
-            lastDirection = movement.normalized;
+            lastDirection = movement;
         }
         else if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             movement = new Vector2(-1, 0);
             animator.Play("knight walking left");
             audioSource.mute = false;
-            lastDirection = movement.normalized;
+            lastDirection = movement;
         }
         else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
             movement = new Vector2(0, -1);
             animator.Play("walking back knight");
             audioSource.mute = false;
-            lastDirection = movement.normalized;
+            lastDirection = movement;
         }
         else if (Input.GetKey(KeyCode.W)  || Input.GetKey(KeyCode.UpArrow))
         {
             movement = new Vector2(0, 1);
             animator.Play("walking farward");
             audioSource.mute = false;
-            lastDirection = movement.normalized;
+            lastDirection = movement;
         }
         else if (lastDirection == new Vector2(1, 0))
 
@@ -192,7 +192,7 @@ public class Playermovement : MonoBehaviour
             animator.SetTrigger("dubbel attack up");
             //attack up ( left and right up as well) dubbel
         }
-        else if (lastDirection == new Vector2(0, -1) || (lastDirection == new Vector2(1, -1) || (lastDirection == new Vector2(-1, -1))))
+        else if (lastDirection == new Vector2(0, -1) || lastDirection == new Vector2(1, -1) || (lastDirection == new Vector2(-1, -1)))
         {
             animator.SetTrigger("dubbel attack down");
             //attack down (left and right down as well dubbel
