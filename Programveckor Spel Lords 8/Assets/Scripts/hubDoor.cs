@@ -3,21 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class caveManDoor : MonoBehaviour
+public class hubDoor : MonoBehaviour
 {
-    public bool playerIsClose;
+    private bool playerIsCLose = false; 
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && playerIsClose)
+        if (Input.GetKeyDown(KeyCode.E) && playerIsCLose)
         {
-            SceneManager.LoadScene(4); //ändra scene nummer till level 1 när vi har den 
+
+            SceneManager.LoadScene(1);
         }
 
     }
@@ -25,7 +26,14 @@ public class caveManDoor : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playerIsClose = true;
+            playerIsCLose  = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerIsCLose = false;
         }
     }
 }

@@ -38,6 +38,7 @@ public class PlayerHP : MonoBehaviour
     {
         currenthealth -= damage;
         currenthealth = Mathf.Clamp(currenthealth, 0, maxhealth);
+        StartCoroutine(FlashRed());
 
         if (healthBar != null)
         { healthBar.value = currenthealth; }
@@ -58,6 +59,7 @@ public class PlayerHP : MonoBehaviour
         {
             healingParticlesInstante = Instantiate(healingParticles, transform.position, Quaternion.identity);
             healing();
+            StartCoroutine(FlashGreen());
         }
 
     }
@@ -66,7 +68,6 @@ public class PlayerHP : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
          Takedamage();
-         StartCoroutine(FlashRed());
         }
     }
 
@@ -75,7 +76,6 @@ public class PlayerHP : MonoBehaviour
         currenthealth += 40;
         currenthealth = Mathf.Clamp(currenthealth, 0, maxhealth);
         healthFlaskLeft -= 1;
-        StartCoroutine(FlashGreen());
         uppdateFlaskSprite();
     }
 
