@@ -8,6 +8,7 @@ using System.Security.Cryptography.X509Certificates;
 
 public class PlayerHP : MonoBehaviour
 {
+    SpriteRenderer spriteRenderer;
     private ParticleSystem healingParticlesInstante;
     public ParticleSystem healingParticles;
     int healthFlaskLeft;
@@ -37,8 +38,8 @@ public class PlayerHP : MonoBehaviour
     {
         currenthealth -= damage;
         currenthealth = Mathf.Clamp(currenthealth, 0, maxhealth);
-       
-        if(healthBar != null)
+
+        if (healthBar != null)
         { healthBar.value = currenthealth; }
         if (currenthealth <= 0)
         {
@@ -65,6 +66,7 @@ public class PlayerHP : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
          Takedamage();
+         StartCoroutine(FlashRed());
         }
     }
 
@@ -73,7 +75,7 @@ public class PlayerHP : MonoBehaviour
         currenthealth += 40;
         currenthealth = Mathf.Clamp(currenthealth, 0, maxhealth);
         healthFlaskLeft -= 1;
-
+        StartCoroutine(FlashGreen());
         uppdateFlaskSprite();
     }
 
@@ -100,7 +102,22 @@ public class PlayerHP : MonoBehaviour
             break; 
 
         }
-
+    }
+    IEnumerator FlashRed()
+    {
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        Color originalColor = spriteRenderer.color;
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        spriteRenderer.color = originalColor;
+    }
+    IEnumerator FlashGreen()
+    {
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        Color originalColor = spriteRenderer.color;
+        spriteRenderer.color = Color.green;
+        yield return new WaitForSeconds(0.1f);
+        spriteRenderer.color = originalColor;
     }
 
 }
