@@ -18,7 +18,7 @@ public class hubDoor : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && playerIsCLose)
         {
 
-            SceneManager.LoadScene(1);
+            FadeManager.Instance.StartFadeOut("labyrinth");
         }
 
     }
