@@ -33,7 +33,8 @@ public class lvl1door : MonoBehaviour
 
         if (playerIsClose && isDoorOpen && Input.GetKeyDown(KeyCode.E))
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneToLoad);
+            FadeManager.Instance.StartFadeOut("labyrinth");
+            // UnityEngine.SceneManagement.SceneManager.LoadScene(sceneToLoad);
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
