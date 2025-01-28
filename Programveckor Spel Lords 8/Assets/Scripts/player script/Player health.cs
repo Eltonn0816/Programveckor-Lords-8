@@ -17,7 +17,7 @@ public class PlayerHP : MonoBehaviour
     public Sprite halfFlaskSprite;
     public Sprite lessFlaskSprite;
     public Sprite EmptyFlaskSprite;
-
+    public AudioSource audioSource;
     public int maxhealth = 100;
     public int currenthealth;
     public Slider healthBar; 
@@ -25,7 +25,7 @@ public class PlayerHP : MonoBehaviour
     {
         healthFlaskLeft = 3; 
         currenthealth = maxhealth;
-        
+        audioSource.mute = true;
         if (healthBar != null)
         {
             healthBar.maxValue = maxhealth;
@@ -60,8 +60,14 @@ public class PlayerHP : MonoBehaviour
             healingParticlesInstante = Instantiate(healingParticles, transform.position, Quaternion.identity);
             healing();
             StartCoroutine(FlashGreen());
+            audioSource.mute = false;
+            Invoke("stopsound", 2);
         }
 
+    }
+    private void stopsound()
+    {
+        audioSource.mute = true;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
