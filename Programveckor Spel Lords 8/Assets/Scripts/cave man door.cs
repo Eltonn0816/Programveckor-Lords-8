@@ -34,7 +34,7 @@ public class Enterdoorscript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && playerIsClose && !isDoorUsed)
         {
             GameManagerScript.Instance.usedDoors[doorID] = true;
-            SceneManager.LoadScene(sceneToLoad);
+            FadeManager.Instance.StartFadeOut("cave man");
         }
 
     }
