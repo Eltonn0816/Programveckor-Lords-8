@@ -7,13 +7,16 @@ public class EnemyHealth : MonoBehaviour
 {
     //particles when enemy get hit 
     public ParticleSystem damagaParticles;
-
+    public enemyknockback knockback; 
     public float health = 100f;  
     public float damageTaken = 35f;
-
-    private ParticleSystem damageParticlesInstance; 
+    private ParticleSystem damageParticlesInstance;
 
     // This method will be called when the enemy is hit
+    private void Start()
+    {
+        knockback = GetComponent<enemyknockback>();
+    }
     public void TakeDamage(float damage)
     {
         health -= damage;
@@ -25,13 +28,10 @@ public class EnemyHealth : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
         if (collision.gameObject.CompareTag("Weapon"))
         {
             TakeDamage(damageTaken);
-           
         } 
-      
     }
     private void Update()
     {

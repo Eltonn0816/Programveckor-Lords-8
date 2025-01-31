@@ -11,8 +11,8 @@ public class Aggressive : MonoBehaviour
     private string currentanimation;
     private bool playerIsClose = false;
     public Vector3 movementdirection;
-    public enemyknockback knockback; 
-    
+    public enemyknockback knockback;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +25,7 @@ public class Aggressive : MonoBehaviour
         {
             playerIsClose = true;
         }
-       
+
     }
     private void OnTriggerExit2D(Collider2D other)
     {
@@ -37,70 +37,76 @@ public class Aggressive : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(playerIsClose);
         string newanimation = null;
-        if(knockback.isknockedback == true)
+        if (knockback.isknockedback == false)
         {
             Vector3 movementdirection = (player.position - transform.position).normalized;
             transform.position += movementdirection * speed * Time.deltaTime;
             movementdirection = movementdirection.normalized * speed;
-        }
-      
-        if (Mathf.Abs(player.position.x - transform.position.x) > Mathf.Abs(player.position.y - transform.position.y))
-        {
-           
-            if (player.transform.position.x > transform.position.x)
+            if (Mathf.Abs(player.position.x - transform.position.x) > Mathf.Abs(player.position.y - transform.position.y))
             {
-                if (playerIsClose == true)
-                {
-                    newanimation = "vikingattackRW";
-                }
-                else if (playerIsClose == false) 
-                { 
-                    newanimation = "vikingwalkRW"; 
-                }
-            }
 
-            else 
-            {
-                if (playerIsClose == true)
+                if (player.transform.position.x > transform.position.x)
                 {
-                    newanimation = "vikingattackLW";
+                    if (playerIsClose == true)
+                    {
+                        newanimation = "vikingattackRW";
+                    }
+                    else if (playerIsClose == false)
+                    {
+                        newanimation = "vikingwalkRW";
+                    }
                 }
-                else if (playerIsClose == false)
-                {
-                    newanimation = "vikingwalkLW";
-                }
-            
-            }
-        }
-        else
-        {
-            if (player.transform.position.y > transform.position.y)
-            {
-                if (playerIsClose == true)
-                { 
-                    newanimation = "vikingattackBW";
-                }
-                else if (playerIsClose == false)
-                {
-                    newanimation = "vikingwalkBW";
-                }
-            }
 
+                else
+                {
+                    if (playerIsClose == true)
+                    {
+                        newanimation = "vikingattackLW";
+                    }
+                    else if (playerIsClose == false)
+                    {
+                        newanimation = "vikingwalkLW";
+                    }
+
+                }
+            }
             else
             {
-              if (playerIsClose == true)
+                if (player.transform.position.y > transform.position.y)
                 {
-                    newanimation = "vikingattackFW";
+                    if (playerIsClose == true)
+                    {
+                        newanimation = "vikingattackBW";
+                    }
+                    else if (playerIsClose == false)
+                    {
+                        newanimation = "vikingwalkBW";
+                    }
                 }
-              else if( playerIsClose == false)
+
+                else
                 {
-                    newanimation = "vikingwalkFW";
+                    if (playerIsClose == true)
+                    {
+                        newanimation = "vikingattackFW";
+                    }
+                    else if (playerIsClose == false)
+                    {
+                        newanimation = "vikingwalkFW";
+                    }
+
                 }
-             
             }
         }
+        else if (knockback.isknockedback == true)
+        {
+            movementdirection = (transform.position - player.position).normalized;
+            transform.position += movementdirection * speed * Time.deltaTime;
+        }
+
+
+
 
         if (newanimation != null && newanimation != currentanimation)
         {
