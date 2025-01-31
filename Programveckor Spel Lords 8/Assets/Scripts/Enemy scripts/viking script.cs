@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Aggressive : MonoBehaviour
@@ -9,10 +10,14 @@ public class Aggressive : MonoBehaviour
     Animator animator;
     private string currentanimation;
     private bool playerIsClose = false;
+    public Vector3 movementdirection;
+    public enemyknockback knockback; 
+    
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        knockback = GetComponent<enemyknockback>();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -34,9 +39,13 @@ public class Aggressive : MonoBehaviour
     {
         print(playerIsClose);
         string newanimation = null;
-        Vector3 direction = (player.position - transform.position).normalized;
-        transform.position += direction * speed * Time.deltaTime;
-        direction = direction.normalized * speed;
+        if(knockback.isknockedback == true)
+        {
+            Vector3 movementdirection = (player.position - transform.position).normalized;
+            transform.position += movementdirection * speed * Time.deltaTime;
+            movementdirection = movementdirection.normalized * speed;
+        }
+      
         if (Mathf.Abs(player.position.x - transform.position.x) > Mathf.Abs(player.position.y - transform.position.y))
         {
            

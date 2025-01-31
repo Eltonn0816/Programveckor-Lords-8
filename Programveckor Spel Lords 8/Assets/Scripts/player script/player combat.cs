@@ -7,7 +7,7 @@ public class playercombat : MonoBehaviour
     public BoxCollider2D attackHitbox;
     public float attackDuration = 0.5f;
     public AudioSource audioSource;
-
+    public float attackStart = 0.4f;
     private bool isAttacking = false;
     Animator animator;
    
@@ -39,6 +39,7 @@ public class playercombat : MonoBehaviour
     private IEnumerator PerformAttack()
     {
         isAttacking = true; // Mark as attacking
+        yield return new WaitForSeconds(attackStart);
         attackHitbox.enabled = true; // Enable the hitbox
 
         yield return new WaitForSeconds(attackDuration); // Wait for the attack duration
