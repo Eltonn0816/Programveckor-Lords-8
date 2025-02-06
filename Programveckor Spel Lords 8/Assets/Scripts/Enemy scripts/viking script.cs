@@ -101,7 +101,7 @@ public class Aggressive : MonoBehaviour
         }
         else if (knockback.isknockedback == true)
         {
-            movementdirection = (transform.position - player.position).normalized;
+            knockback.knockbackdirection = (transform.position - player.position).normalized;
             transform.position += movementdirection * speed * Time.deltaTime;
         }
 

@@ -26,7 +26,7 @@ public class enemyknockback : MonoBehaviour
     void Update()
     {
         Vector3 attackerposition = player.position;
-        knockbackdirection = transform.position - player.position;  
+        knockbackdirection = (transform.position - player.position).normalized;  
     }
     public void Applyknockback(Vector3 attackerposition)
     {
