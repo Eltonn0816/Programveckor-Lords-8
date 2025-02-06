@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; 
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Security.Cryptography.X509Certificates;
 
@@ -17,15 +17,15 @@ public class PlayerHP : MonoBehaviour
     public Sprite halfFlaskSprite;
     public Sprite lessFlaskSprite;
     public Sprite EmptyFlaskSprite;
-    public AudioSource audioSource;
+
     public int maxhealth = 100;
     public int currenthealth;
-    public Slider healthBar; 
+    public Slider healthBar;
     void Start()
     {
-        healthFlaskLeft = 3; 
+        healthFlaskLeft = 3;
         currenthealth = maxhealth;
-        audioSource.mute = true;
+
         if (healthBar != null)
         {
             healthBar.maxValue = maxhealth;
@@ -34,7 +34,7 @@ public class PlayerHP : MonoBehaviour
 
         uppdateFlaskSprite();
     }
-    public void Takedamage (int damage = 20)
+    public void Takedamage(int damage = 20)
     {
         currenthealth -= damage;
         currenthealth = Mathf.Clamp(currenthealth, 0, maxhealth);
@@ -60,20 +60,14 @@ public class PlayerHP : MonoBehaviour
             healingParticlesInstante = Instantiate(healingParticles, transform.position, Quaternion.identity);
             healing();
             StartCoroutine(FlashGreen());
-            audioSource.mute = false;
-            Invoke("stopsound", 2);
         }
 
-    }
-    private void stopsound()
-    {
-        audioSource.mute = true;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-         Takedamage();
+            Takedamage();
         }
     }
 
@@ -93,19 +87,19 @@ public class PlayerHP : MonoBehaviour
         {
             case 3:
                 flaskImage.sprite = fullFlaskSprite;
-            break;
+                break;
 
             case 2:
-                 flaskImage.sprite = halfFlaskSprite;
-            break;
+                flaskImage.sprite = halfFlaskSprite;
+                break;
 
             case 1:
                 flaskImage.sprite = lessFlaskSprite;
-            break;
+                break;
 
             default:
-            flaskImage.sprite = EmptyFlaskSprite;
-            break; 
+                flaskImage.sprite = EmptyFlaskSprite;
+                break;
 
         }
     }
@@ -127,4 +121,3 @@ public class PlayerHP : MonoBehaviour
     }
 
 }
-
