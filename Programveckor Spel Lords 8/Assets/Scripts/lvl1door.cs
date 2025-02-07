@@ -8,7 +8,8 @@ public class lvl1door : MonoBehaviour
     
     public string sceneToLoad;
     public Sprite chaindDoorSprite;
-    public Sprite openDoorSprite; 
+    public Sprite openDoorSprite;
+    public string doorID;
 
     private SpriteRenderer spriteRenderer;
     public bool playerIsClose;
@@ -33,8 +34,9 @@ public class lvl1door : MonoBehaviour
 
         if (playerIsClose && isDoorOpen && Input.GetKeyDown(KeyCode.E))
         {
+            GameManagerScript.Instance.RegisterDoorUse(doorID);
             FadeManager.Instance.StartFadeOut("labyrinth");
-            // UnityEngine.SceneManagement.SceneManager.LoadScene(sceneToLoad);
+            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneToLoad);
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
