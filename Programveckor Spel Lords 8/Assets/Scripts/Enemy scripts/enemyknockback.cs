@@ -1,7 +1,6 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
-using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 
 public class enemyknockback : MonoBehaviour
@@ -13,11 +12,14 @@ public class enemyknockback : MonoBehaviour
     public Vector3 knockbackdirection;
     private Rigidbody2D rb;
     public Aggressive vikingscript;
-    public EnemyHealth ehealth; 
+    public EnemyHealth ehealth;
+    public Aggressive viking; 
+    
 
     // Start is called before the first frame update
     void Start()
     {
+        viking = GetComponent<Aggressive>();
         ehealth = GetComponent<EnemyHealth>();
         rb = GetComponent<Rigidbody2D>();
         vikingscript = GetComponent<Aggressive>();
@@ -25,20 +27,23 @@ public class enemyknockback : MonoBehaviour
     
     void Update()
     {
-        Vector3 attackerposition = player.position;
-        knockbackdirection = (transform.position - player.position).normalized;  
+        //attackerposition = player.position;
+        
     }
-    public void Applyknockback(Vector3 attackerposition)
+    public void Applyknockback()
     {
+        print("knockback applied");
         isknockedback = true;
+        knockbackdirection = (transform.position - player.position).normalized;
         rb.velocity = knockbackdirection * knockbackforce;
+     
         Invoke(nameof(Endknockback), knockbackduration);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Weapon"))
         {
-            Applyknockback(player.position);
+            //Applyknockback(player.position);
         }
     }
     public void Endknockback()

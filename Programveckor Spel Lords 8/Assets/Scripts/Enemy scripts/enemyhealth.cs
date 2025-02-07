@@ -11,6 +11,8 @@ public class EnemyHealth : MonoBehaviour
     public float health = 100f;  
     public float damageTaken = 35f;
     private ParticleSystem damageParticlesInstance;
+    public Transform player; 
+    
 
     // This method will be called when the enemy is hit
     private void Start()
@@ -21,6 +23,7 @@ public class EnemyHealth : MonoBehaviour
     {
         health -= damage;
         spawnDamagaParticles();
+        knockback.Applyknockback();
         if (health <= 1)
         {
             Die();  // Call the die method if health reaches 0
@@ -35,7 +38,7 @@ public class EnemyHealth : MonoBehaviour
     }
     private void Update()
     {
-        if (health <= 1)
+        if (health < 1)
         {
             Die();  // Call the die method if health reaches 0
         }

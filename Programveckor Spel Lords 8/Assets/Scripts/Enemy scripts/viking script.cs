@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Aggressive : MonoBehaviour
@@ -62,7 +61,7 @@ public class Aggressive : MonoBehaviour
                 {
                     if (playerIsClose == true)
                     {
-                        newanimation = "vikingattackLW";
+                        newanimation = "vikingattackLV";
                     }
                     else if (playerIsClose == false)
                     {
@@ -99,14 +98,11 @@ public class Aggressive : MonoBehaviour
                 }
             }
         }
+
         else if (knockback.isknockedback == true)
         {
-            knockback.knockbackdirection = (transform.position - player.position).normalized;
-            transform.position += movementdirection * speed * Time.deltaTime;
+            knockback.Applyknockback();
         }
-
-
-
 
         if (newanimation != null && newanimation != currentanimation)
         {
