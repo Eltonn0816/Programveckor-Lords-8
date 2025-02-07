@@ -46,7 +46,7 @@ public class PlayerHP : MonoBehaviour
         {
             gameover();
         }
-        void gameover() { SceneManager.LoadScene(1); }
+        void gameover() { SceneManager.LoadScene(3); }
 
     }
 
